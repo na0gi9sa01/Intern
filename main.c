@@ -53,7 +53,7 @@ int func(FILE *fp_r,FILE *fp_w){
     }
     rec_ave = rec_sum / user_number;            //おすすめするユーザーの映画の評価平均値
     
-    /*コサイン類似度の計算*/
+    /*ピアソン類似度の計算*/
     for(i = 0; i < user_number; i++){
         element1 = element2 = element3 = 0.0;
         Comparison_sum = 0.0;
@@ -70,7 +70,7 @@ int func(FILE *fp_r,FILE *fp_w){
         if(element3 == 0)   element3 = 0.00001;                            //nan回避
         //printf("%f,%f,%f\n",element1,sqrt(element2),sqrt(element3));
         sim[i][0] = i+1;
-        sim[i][1] = element1 /(sqrt(element2)*sqrt(element3));                 //コサイン類似度の計算
+        sim[i][1] = element1 /(sqrt(element2)*sqrt(element3));                 //ピアソン類似度の計算
         //printf("user %1.0f is similarity = %f\n",sim[i][0],sim[i][1]);
     }
     
